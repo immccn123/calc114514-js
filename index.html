@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114514 Calculator</title>
+
+    <script src="/index.js"></script>
+    <script>
+        function getHomo() {
+            document.getElementById('homo-result').innerText = homo(document.getElementById('homo').value, document.getElementById('homo').value.length / 6 + 1);
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap/5.2.3/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-center" style="background-color: rgb(255, 255, 255);">
+    <div id="app" class="form-getflag">
+        <h1>114514<br>数字论证器<br>(位运算版本)</h1>
+        <p class="form-group"><label>你想论证的数字：</label><input type="number" id="homo" class="form-control"></p>
+        <button onclick="getHomo()" class="btn btn-primary" style="margin-top: 10px;">论证！</button>
+        <h4 style="margin-top: 10px;">论证结果：</h4>
+        <textarea readonly style="margin-top: 10px;" name="homo-res" id="homo-result" cols="30" rows="10" class="form-control"></textarea>
+
+        <footer class="text-center">
+            <a href="https://github.com/immccn123/calc114514-js">Source Code</a>
+        </footer>
+    </div>
+    <script src="https://cdn.staticfile.org/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
