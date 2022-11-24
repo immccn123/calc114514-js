@@ -5,43 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>114514 Calculator</title>
+    <meta name="description" content="A tool can generate an expression with char 114514 and '-', '~', '*'">
+    <title>114514 Proof Tool - Generate an expression with 114514</title>
+
+
+    <link rel="stylesheet" href="//cdn.staticfile.org/bootstrap/5.2.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <script src="index.js"></script>
     <script>
         function getHomo() {
             var n = document.getElementById('homo').value;
+            if (n === '') {
+                document.getElementById('qed').innerText = '';
+                document.getElementById('homo-result').value = '';
+                return;
+            }
             var underZero = false;
+            n = n.replace(/^0+/, "");
             if (n < 0) {
                 n = -n;
                 underZero = true;
             }
             var result = homo(n, n.toString().length / 7 + 1);
-            document.getElementById('homo-result').innerText = underZero ? `-(${result})` : result;
+            document.getElementById('homo-result').value = underZero ? `-(${result})` : result;
             document.getElementById('qed').innerText = 'Q.E.D.';
+        }
+        window.onload = () => {
+            var resultArea = document.getElementById('homo-result');
+            resultArea.onclick = (event) => {
+                event.target.select();
+            }
+            getHomo();
         }
     </script>
 
-    <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap/5.2.3/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="text-center" style="background-color: rgb(255, 255, 255);">
+<body class="text-center">
     <div id="app" class="form-getflag">
         <h1><span id="proof-number">114514</span><br>Proof tool<br><span style="font-size: 2rem;">(with '-' and
                 '~')</span></h1>
-        <p class="form-group"><label>The number you want to proof:</label><input type="number" id="homo"
-                class="form-control"></p>
-        <button onclick="getHomo()" class="btn btn-primary" style="margin-top: 10px;">Proof!</button>
+        <p class="form-group"><label>The number you want to proof:</label><input type="number" inputmode="latin-name" id="homo"
+                class="form-control" onkeyup="getHomo()" value="114514"></p>
         <h4 style="margin-top: 10px;">Proof:</h4>
         <textarea readonly style="margin-top: 10px;" name="homo-res" id="homo-result" cols="30" rows="10"
             class="form-control"></textarea>
         <p id="qed"></p>
         <footer class="text-center">
             <a href="https://github.com/immccn123/calc114514-js">Source Code</a>
+            <p>It's not particularly accurate in the case of negative numbers. PRs Welcome.</p>
         </footer>
     </div>
-    <script src="https://cdn.staticfile.org/bootstrap/5.2.3/js/bootstrap.min.js"></script>
 </body>
 
 </html>

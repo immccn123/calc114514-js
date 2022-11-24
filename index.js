@@ -4,7 +4,6 @@ function homo(number, repeatTimes) {
     var e = '114514'.repeat(repeatTimes)
     for (var i = 0; i < 1; i++) {
         s.push('~-'.repeat(e[i]) + e[i]);
-        console.log('~-'.repeat(e[i]) + e[i])
     }
     for (var i = 1; i < e.length; i++)  {
         s.push('-~'.repeat(parseInt(jz - e[i])) + e[i]);
